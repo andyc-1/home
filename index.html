@@ -108,12 +108,13 @@ btn.onclick = function() {
 
 // Send the credentials as a sha1
 snd.onclick = function()    {
-    let b = 'uBMgZg' + usr.value + pwd.value;
-    alert( b);
+    let b = 'hVoBkr' + usr.value + pwd.value;
+    // alert( b);
+    console.log(b)
     let mypromise = sha1FromString(b);
     mypromise.then(
             function(value) {
-              alert('sha1 is '+ value +' ok');
+              //alert('sha1 is '+ value +' ok');
               //fetch('http://98.96.160.135/' + '?tk=' + value)
               window.open('http://98.96.160.135/' + '?tk=' + value);
               },

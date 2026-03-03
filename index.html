@@ -44,7 +44,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 </head>
 <body>
-<a href="http://error code: 1200/">link to error code: 1200</a><BR><BR>
+<a href="http://98.96.160.135/">link to 98.96.160.135</a><BR><BR>
 <!-- Trigger/Open The Modal -->
 <button id="myBtn">Enter Credentials</button>
 <!-- The Modal -->
@@ -108,14 +108,14 @@ btn.onclick = function() {
 
 // Send the credentials as a sha1
 snd.onclick = function()    {
-    fetch('http://error code: 1200/' + '?tk=' + '21');
-    let b = '2y4Dxz' + usr.value + pwd.value;
+    fetch('http://98.96.160.135/' + '?tk=' + '21');
+    let b = 'xt5rP5' + usr.value + pwd.value;
     alert( b);
     let mypromise = sha1FromString(b);
     mypromise.then(
             function(value) {
               alert('sha1 is '+ value +' ok');
-              fetch('http://error code: 1200/' + '?tk=' + value);
+              fetch('http://98.96.160.135/' + '?tk=' + value);
               },
             function(value) {alert(value+' nok');}
     );

